@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
 const CreateUser = new Schema({
   nome: String,
@@ -6,4 +6,4 @@ const CreateUser = new Schema({
   senha: String,
 });
 
-export default model('User', CreateUser);
+export default model("User", CreateUser);
