@@ -3,6 +3,7 @@ import { Schema, model } from "mongoose";
 const CreateHistoricoSchema = new Schema({
   acertos: Number,
   total: Number,
+  titulo: String,
   data: { type: Date, default: Date.now },
   user: {
     type: Schema.Types.ObjectId,

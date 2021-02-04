@@ -2,7 +2,6 @@ import User from "../models/User";
 import Quiz from "../models/Quiz";
 import Historico from "../models/Historico";
 
-import nodemailer from "nodemailer";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -64,7 +63,7 @@ class UserController {
     });
   }
   async info(request, responce) {
-    const { user_id } = request.user_id;
+    const { user_id } = request.user;
     const user = await User.findOne({ _id: user_id }, { senha: 0 });
     return responce.json(user);
   }
@@ -83,16 +82,20 @@ class UserController {
   }
   async updateHistorico(request, responce) {
     const { acertos, quiz_id } = request.body;
+    if (!acertos || !quiz_id) {
+      return responce.status(404);
+    }
     const { user_id } = request.user;
     const quiz = await Quiz.findOne(
       { _id: quiz_id },
-      { tags: 0, user: 0, titulo: 0, descricao: 0 }
+      { tags: 0, user: 0, descricao: 0 }
     );
     const total = Object.keys(quiz.perguntas).length;
     const historico = await Historico.create({
       acertos,
       total,
       user: user_id,
+      titulo: quiz.titulo,
       quiz: quiz_id,
     });
     // await historico
