@@ -22,7 +22,7 @@ routes.delete(
 routes.post("/login", UserController.login);
 routes.post("/register", UserController.register);
 routes.get("/user", loginAuthorization.required, UserController.info);
-routes.get(
+routes.post(
   "/update-historico",
   loginAuthorization.required,
   UserController.updateHistorico
