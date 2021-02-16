@@ -8,15 +8,6 @@ Essa é minha primeira api feita com NodeJS e MongoDB, nela é possivel listar q
 - [ ] Adicionar rota para busca e filtros.
 - [ ] Explicar melhor todas as rotas e funcionalidades.
 
-## Para rodar API
-- Primeiro conecte um banco de dados Mongo | [Tutorial >](http://stack.desenvolvedor.expert/usando-mongodb/usando-com-node.html)
-
-- Instale todas as depedencias com: `yarn` ou `npm install`
-
-- No diretório do projeto, inicie com: `yarn start` ou `npm start`
-
-- Pronto agora use `http://localhost:[porta_que_voce_escolheu]/[rota]`.
-
 ## Rotas
 #### Rotas que não precisam do token
 - `/all` GET - Irá listar todos os quizzes - Limitado a 10 mais em breve irei colocar um paginação.
